@@ -12,6 +12,7 @@ export default function Home() {
   const [data, setData] = useState<DictionaryList | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [wordNotFound, setWordNotFound] = useState("");
   const phonetics = data?.phonetics || [];
 
   const wordSchema = z.object({
@@ -23,21 +24,23 @@ export default function Home() {
       if (word.trim() === "") {
         setLoading(false);
         setError("");
+        setWordNotFound("");
         setData(null);
         return;
       }
       try {
         const response = await searchWord(word);
         if (response.length > 0) {
-          console.log("🚀 response[0] - ", response[0]);
           setData(response[0]);
           setError("");
+          setWordNotFound("");
         } else {
-          setError("Word not found");
+          setWordNotFound(
+            "Sorry pal, we couldn't find definitions for the word you were looking for. You can try the search again at later time or head to the web instead."
+          );
           setData(null);
         }
-      } catch (err) {
-        console.error(err);
+      } catch {
         setError("Failed to fetch data");
         setData(null);
       }
@@ -69,15 +72,17 @@ export default function Home() {
     setLoading(true);
     try {
       wordSchema.parse({ word });
-      console.log("Lupa", word);
       setError("");
+      setWordNotFound("");
       const response = await searchWord(word);
       if (response.length > 0) {
-        console.log("🚀 response[0] - ", response[0]);
         setData(response[0]);
         setError("");
+        setWordNotFound("");
       } else {
-        setError("Word not found");
+        setWordNotFound(
+          "Sorry pal, we couldn't find definitions for the word you were looking for. You can try the search again at later time or head to the web instead."
+        );
         setData(null);
       }
     } catch (err) {
@@ -86,7 +91,6 @@ export default function Home() {
         setError(errorMessage);
         setData(null);
       } else {
-        console.error("An unexpected error occurred", err);
         setError("An unexpected error occurred");
         setData(null);
       }
@@ -109,6 +113,7 @@ export default function Home() {
       handlePlay={handlePlay}
       audioRef={audioRef}
       phoneticAudio={phoneticAudio}
+      wordNotFound={wordNotFound}
     />
   );
 }

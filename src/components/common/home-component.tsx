@@ -12,6 +12,7 @@ import IconBook from "@/components/common/icon-book";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import LoadingSpin from "./loading-spin";
+import Image from "next/image";
 import { DictionaryList } from "@/model/dictionary-model";
 import IconPlay from "./icon-play";
 
@@ -29,6 +30,7 @@ interface HomeComponentProps {
   handlePlay: () => void;
   audioRef: RefObject<HTMLAudioElement | null>;
   phoneticAudio: string | undefined;
+  wordNotFound: string;
 }
 
 export function HomeComponent({
@@ -45,6 +47,7 @@ export function HomeComponent({
   handlePlay,
   audioRef,
   phoneticAudio,
+  wordNotFound,
 }: HomeComponentProps) {
   return (
     <div className={`min-h-screen bg-background ${isDarkMode ? "dark" : ""}`}>
@@ -103,6 +106,15 @@ export function HomeComponent({
 
         {loading && <LoadingSpin />}
         {error && <p className="text-red-500">{error}</p>}
+        {wordNotFound && (
+          <>
+            <div className="flex justify-center mb-5">
+              <Image src="/emoji.png" alt="emoji icon" width={50} height={50} />
+            </div>
+            <h1 className="flex justify-center mb-3">No Definitions Found</h1>
+            <p className="text-[#757575]">{wordNotFound}</p>
+          </>
+        )}
 
         {data && (
           <main className="space-y-8">
