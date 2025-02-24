@@ -1,0 +1,39 @@
+{
+  "login":{
+    "title":"Login",
+    "placeholderEmail":"Email",
+    "placeholderPassword":"Senha",
+    "buttonEnter":"Entrar",
+    "buttonCreateAccount":"Não tem uma conta? Clique aqui para criar"
+  },
+  "createLogin":{
+    "title":"Criar nova conta",
+    "description":"Preencha os campos abaixo para criar sua conta.",
+    "placeholderEmail":"Email",
+    "placeholderPassword":"Senha",
+    "buttonCreateAccount":"Criar conta",
+    "buttonCancel":"Cancelar",
+    "apiTitle": "Usuário",
+    "apiMsgSuccess": "Usuário criado com sucesso",
+    "apiMsgError": "Não foi possível criar o usuário"
+  },
+  "sidebar":{
+      "changePassword": "Alterar senha",
+      "label": "Preencha os campos abaixo para alterar a sua senha",
+      "placeholder": "Senha",
+      "buttonSave": "Alterar",
+      "buttonCancel": "Cancelar",
+      "apiTitle": "Senha",
+      "apiMsgSuccess": "Dados alterados com sucesso",
+      "apiMsgError": "Não foi possível alterar os dados",
+      "optionDashboard": "Dashboard",
+      "optionProfile": "Perfil",
+      "optionSettings": "Configurações",
+      "optionAccount": "Conta",
+      "optionPreferences": "Preferências",
+      "title": "Nome da empresa",
+      "darkMode": "Modo Escuro",
+      "lightMode": "Modo Claro",
+      "buttonExit": "Sair"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "login":{
+    "title":"Login",
+    "placeholderEmail":"Email",
+    "placeholderPassword":"Password",
+    "buttonEnter":"Sign in",
+    "buttonCreateAccount":"Don't have an account? Click here to create one"
+  },
+  "createLogin":{
+    "title":"Create new account",
+    "description":"Fill in the fields below to create your account.",
+    "placeholderEmail":"Email",
+    "placeholderPassword":"Password",
+    "buttonCreateAccount":"Create account",
+    "buttonCancel":"Cancel",
+    "apiTitle": "User",
+    "apiMsgSuccess": "User created successfully",
+    "apiMsgError": "Could not create user"
+  },
+  "sidebar":{
+      "changePassword": "Change password",
+      "label": "Fill in the fields below to change your password",
+      "placeholder": "Password",
+      "buttonSave": "Change",
+      "buttonCancel": "Cancel",
+      "apiTitle": "Password",
+      "apiMsgSuccess": "Data changed successfully",
+      "apiMsgError": "It was not possible to change the data",
+      "optionDashboard": "Dashboard",
+      "optionProfile": "Profile",
+      "optionSettings": "Settings",
+      "optionAccount": "Account",
+      "optionPreferences": "Preferences",
+      "title": "Company name",
+      "darkMode": "Dark Mode",
+      "lightMode": "Light Mode",
+      "buttonExit": "Log out"
+  }
+}
