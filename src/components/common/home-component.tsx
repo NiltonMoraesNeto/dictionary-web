@@ -105,7 +105,7 @@ export function HomeComponent({
         {error && <p className="text-red-500">{error}</p>}
 
         {data && (
-          <main className="space-y-8" key={data.word}>
+          <main className="space-y-8">
             <div className="flex justify-between items-center">
               <div>
                 <h1 className="text-4xl font-bold mb-2">{data.word}</h1>
@@ -120,39 +120,37 @@ export function HomeComponent({
               </div>
             </div>
             {data.meanings.map((meaning, index) => (
-              <>
-                <section key={index}>
-                  <div className="flex items-center gap-4 mb-8">
-                    <h2 className="text-lg italic">{meaning.partOfSpeech}</h2>
-                    <div className="h-[1px] flex-1 bg-muted" />
+              <section key={index}>
+                <div className="flex items-center gap-4 mb-8">
+                  <h2 className="text-lg italic">{meaning.partOfSpeech}</h2>
+                  <div className="h-[1px] flex-1 bg-muted" />
+                </div>
+
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-muted-foreground mb-4">Meaning</h3>
+                    <ul className="list-disc pl-5 space-y-2">
+                      {meaning.definitions.map((def, defIndex) => (
+                        <li
+                          key={defIndex}
+                          className="text-gray-800 dark:text-white list-inside list-disc marker:text-purple-500"
+                        >
+                          {def.definition}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  <div className="space-y-6">
+                  {meaning.synonyms.length > 0 && (
                     <div>
-                      <h3 className="text-muted-foreground mb-4">Meaning</h3>
-                      <ul className="list-disc pl-5 space-y-2" key={index}>
-                        {meaning.definitions.map((def, defIndex) => (
-                          <li
-                            key={defIndex}
-                            className="text-gray-800 dark:text-white list-inside list-disc marker:text-purple-500"
-                          >
-                            {def.definition}
-                          </li>
-                        ))}
-                      </ul>
+                      <h3 className="text-muted-foreground mb-4">Synonyms</h3>
+                      <p className="text-purple-500">
+                        {meaning.synonyms.join(", ")}
+                      </p>
                     </div>
-
-                    {meaning.synonyms.length > 0 && (
-                      <div>
-                        <h3 className="text-muted-foreground mb-4">Synonyms</h3>
-                        <p className="text-purple-500">
-                          {meaning.synonyms.join(", ")}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                </section>
-              </>
+                  )}
+                </div>
+              </section>
             ))}
             {Array.isArray(data.sourceUrls) && (
               <footer className="text-sm text-muted-foreground pt-4 border-t">
