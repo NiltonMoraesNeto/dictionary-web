@@ -16,7 +16,7 @@ export default function Home() {
   const phonetics = data?.phonetics || [];
 
   const wordSchema = z.object({
-    word: z.string().min(1, "The word is required"),
+    word: z.string().min(1, "Whoops, can’t be empty…"),
   });
 
   useEffect(() => {
